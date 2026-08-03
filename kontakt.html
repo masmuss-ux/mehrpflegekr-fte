@@ -103,21 +103,27 @@
 
       <div class="card reveal">
         <h3 style="margin-bottom:20px;">Oder schreiben Sie uns</h3>
-        <form onsubmit="event.preventDefault(); alert('Danke für Ihre Nachricht. Dies ist eine Demo-Website ohne aktive Formularverarbeitung.');">
-          <div class="form-field"><label for="name">Name</label><input id="name" type="text" required></div>
-          <div class="form-field"><label for="firma">Pflegedienst / Einrichtung</label><input id="firma" type="text"></div>
-          <div class="form-field"><label for="email">E-Mail</label><input id="email" type="email" required></div>
+        <form id="contactForm">
+          <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY_HIER_EINTRAGEN">
+          <input type="hidden" name="subject" value="Neue Anfrage über mehrpflegekraefte.de">
+          <input type="hidden" name="from_name" value="Mehr Pflegekräfte Website">
+          <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
+
+          <div class="form-field"><label for="name">Name</label><input id="name" name="name" type="text" required></div>
+          <div class="form-field"><label for="firma">Pflegedienst / Einrichtung</label><input id="firma" name="firma" type="text"></div>
+          <div class="form-field"><label for="email">E-Mail</label><input id="email" name="email" type="email" required></div>
           <div class="form-field">
             <label for="bedarf">Gesuchte Qualifikation</label>
-            <select id="bedarf">
+            <select id="bedarf" name="bedarf">
               <option>Examinierte Pflegefachkraft</option>
               <option>Pflegehelfer / Assistenzkraft</option>
               <option>Wohnbereichsleitung</option>
               <option>Sonstige</option>
             </select>
           </div>
-          <div class="form-field"><label for="nachricht">Nachricht</label><textarea id="nachricht" rows="4"></textarea></div>
+          <div class="form-field"><label for="nachricht">Nachricht</label><textarea id="nachricht" name="nachricht" rows="4"></textarea></div>
           <button type="submit" class="btn btn-primary" style="width:100%;">Nachricht senden</button>
+          <p id="formStatus" style="margin-top:14px;font-size:0.9rem;"></p>
         </form>
       </div>
     </div>

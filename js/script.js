@@ -352,3 +352,46 @@ document.addEventListener("DOMContentLoaded", () => {
     activate(current);
   }, 2800);
 });
+
+/* ============================================================
+   KONTAKTFORMULAR — Anbindung an Web3Forms
+   ============================================================ */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+  const status = document.getElementById("formStatus");
+  if (!form) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Wird gesendet …";
+    status.textContent = "";
+    status.style.color = "";
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+      });
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        status.textContent = "Danke, Ihre Nachricht ist angekommen. Wir melden uns in der Regel innerhalb eines Werktags.";
+        status.style.color = "var(--turq)";
+        form.reset();
+      } else {
+        throw new Error(result.message || "Unbekannter Fehler");
+      }
+    } catch (err) {
+      status.textContent = "Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie direkt an info@maperso.de.";
+      status.style.color = "#e05a4a";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
+});
