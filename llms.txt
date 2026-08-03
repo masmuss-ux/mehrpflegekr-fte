@@ -26,6 +26,10 @@
 - Regionale Vermittlung Köln/Westdeutschland: /pflegedienste/koeln.html
 - Regionale Vermittlung Frankfurt/Mitteldeutschland: /pflegedienste/frankfurt.html
 - Regionale Vermittlung München/Süddeutschland: /pflegedienste/muenchen.html
+- Ratgeber-Übersicht: /ratgeber/index.html
+- Ratgeber: Fachkräftemangel in der Pflege: /ratgeber/fachkraeftemangel-pflege.html
+- Ratgeber: Pflegekräfte finden ohne Zeitarbeit: /ratgeber/pflegekraefte-finden-ohne-zeitarbeit.html
+- Ratgeber: Recruiting-Kanäle für Pflegedienste: /ratgeber/pflegekraefte-recruiting-kanaele.html
 
 ## Häufige Fragen und Antworten
 
