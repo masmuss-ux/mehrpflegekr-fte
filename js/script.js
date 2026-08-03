@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const overlay = document.getElementById("calendlyModal");
   const closeBtn = document.querySelector(".modal-close");
   const iframe = document.getElementById("calendlyFrame");
-  const CALENDLY_URL = "https://calendly.com/mehrpflegekraefte/erstgespraech";
+  const CALENDLY_URL = "https://calendly.com/termin-maperso/erstgesprach-klon-1?primary_color=2fe7d6";
 
   const openModal = () => {
     if (iframe && !iframe.src) iframe.src = CALENDLY_URL;
