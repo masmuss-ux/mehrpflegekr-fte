@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt | Mehr Pflegekräfte</title>
+<meta name="description" content="Nehmen Sie Kontakt zu Mehr Pflegekräfte auf oder buchen Sie direkt ein kostenloses Erstgespräch zur Vermittlung von Pflegefachkräften.">
+<link rel="canonical" href="https://www.mehrpflegekraefte.de/kontakt.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,650&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+  .form-field { margin-bottom: 18px; }
+  .form-field label { display: block; font-size: 0.88rem; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+  .form-field input, .form-field textarea, .form-field select {
+    width: 100%; padding: 13px 16px; border-radius: 10px; border: 1px solid var(--border-strong);
+    font-family: inherit; font-size: 0.96rem; background: var(--surface-2); color: var(--text);
+  }
+  .form-field input:focus, .form-field textarea:focus, .form-field select:focus { border-color: var(--turq); outline: none; }
+  @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="scroll-progress"></div>
+<div class="ambient-orbs" aria-hidden="true"><span class="orb orb-a"></span><span class="orb orb-b"></span><span class="orb orb-c"></span></div>
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true"></span>Mehr<span>Pflegekräfte</span></a>
+    <div class="nav-links">
+      <a href="leistungen.html">Leistungen</a>
+      <a href="ueber-uns.html">Über uns</a>
+      <a href="pflegedienste/berlin.html">Regionen</a>
+      <a href="faq.html">Fragen &amp; Antworten</a>
+      <a href="kontakt.html">Kontakt</a>
+    </div>
+    <div class="nav-actions">
+      <span class="nav-tel">030 555 8842</span>
+      <button class="btn btn-primary btn-sm" data-open-calendly>Termin buchen</button>
+    </div>
+    <button class="nav-burger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-panel">
+    <a href="leistungen.html">Leistungen</a>
+    <a href="ueber-uns.html">Über uns</a>
+    <a href="pflegedienste/berlin.html">Regionen</a>
+    <a href="faq.html">Fragen &amp; Antworten</a>
+    <a href="kontakt.html">Kontakt</a>
+    <button class="btn btn-primary" data-open-calendly>Termin buchen</button>
+  </div>
+</nav>
+
+<header class="hero" style="padding-bottom:20px;">
+  <div class="wrap" style="grid-template-columns:1fr;">
+    <div class="crumbs"><a href="index.html">Start</a> / Kontakt</div>
+    <span class="eyebrow" style="margin-top:20px;">Kontakt</span>
+    <h1 style="max-width:18ch;margin-top:16px;">Sprechen wir über Ihre offene Stelle.</h1>
+    <p class="lede" style="margin-top:18px;">Buchen Sie direkt einen Termin oder schreiben Sie uns Ihr Anliegen. Wir melden uns in der Regel innerhalb eines Werktags.</p>
+  </div>
+</header>
+
+<section class="section-tight">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="reveal">
+        <h3 style="margin-bottom:22px;">Direkt einen Termin buchen</h3>
+        <p class="lede" style="margin-bottom:24px;">Wählen Sie einen freien Slot für ein kostenloses, 20-minütiges Erstgespräch mit einem Ansprechpartner aus Ihrer Region.</p>
+        <button class="btn btn-primary" data-open-calendly>Kalender öffnen</button>
+
+        <div style="margin-top:48px;padding-top:32px;border-top:1px solid var(--border);">
+          <h3 style="margin-bottom:18px;">Kontaktdaten</h3>
+          <p style="margin-bottom:10px;"><strong>Telefon:</strong> <a href="tel:+493055588420" style="color:var(--turq);">030 555 8842</a></p>
+          <p style="margin-bottom:10px;"><strong>E-Mail:</strong> <a href="mailto:kontakt@mehrpflegekraefte.de" style="color:var(--turq);">kontakt@mehrpflegekraefte.de</a></p>
+          <p><strong>Erreichbarkeit:</strong> Montag bis Freitag, 8:00 bis 18:00 Uhr</p>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <h3 style="margin-bottom:20px;">Oder schreiben Sie uns</h3>
+        <form onsubmit="event.preventDefault(); alert('Danke für Ihre Nachricht. Dies ist eine Demo-Website ohne aktive Formularverarbeitung.');">
+          <div class="form-field"><label for="name">Name</label><input id="name" type="text" required></div>
+          <div class="form-field"><label for="firma">Pflegedienst / Einrichtung</label><input id="firma" type="text"></div>
+          <div class="form-field"><label for="email">E-Mail</label><input id="email" type="email" required></div>
+          <div class="form-field">
+            <label for="bedarf">Gesuchte Qualifikation</label>
+            <select id="bedarf">
+              <option>Examinierte Pflegefachkraft</option>
+              <option>Pflegehelfer / Assistenzkraft</option>
+              <option>Wohnbereichsleitung</option>
+              <option>Sonstige</option>
+            </select>
+          </div>
+          <div class="form-field"><label for="nachricht">Nachricht</label><textarea id="nachricht" rows="4"></textarea></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Nachricht senden</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand" style="color:#fff;"><span class="brand-mark" aria-hidden="true"></span>Mehr<span style="color:var(--turq);">Pflegekräfte</span></a>
+        <p>Personalvermittlung für Pflegefachkräfte an ambulante und stationäre Einrichtungen in ganz Deutschland, zum Festpreis.</p>
+      </div>
+      <div><h4>Unternehmen</h4><a href="ueber-uns.html">Über uns</a><a href="leistungen.html">Leistungen</a><a href="faq.html">Fragen &amp; Antworten</a><a href="kontakt.html">Kontakt</a></div>
+      <div><h4>Regionen</h4><a href="pflegedienste/berlin.html">Berlin</a><a href="pflegedienste/hamburg.html">Hamburg</a><a href="pflegedienste/koeln.html">Köln</a><a href="pflegedienste/frankfurt.html">Frankfurt</a><a href="pflegedienste/muenchen.html">München</a></div>
+      <div><h4>Kontakt</h4><a href="tel:+493055588420">030 555 8842</a><a href="mailto:kontakt@mehrpflegekraefte.de">kontakt@mehrpflegekraefte.de</a><a href="#" data-open-calendly>Termin buchen</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Mehr Pflegekräfte GmbH</span><div><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></div></div>
+  </div>
+</footer>
+
+<div class="sticky-cta"><button class="btn btn-primary" data-open-calendly>Kostenloses Erstgespräch buchen</button></div>
+<div class="modal-overlay" id="calendlyModal"><div class="modal-box"><button class="modal-close" aria-label="Schließen">✕</button><iframe id="calendlyFrame" title="Termin bei Mehr Pflegekräfte buchen" loading="lazy"></iframe></div></div>
+<script src="js/script.js"></script>
+</body>
+</html>
