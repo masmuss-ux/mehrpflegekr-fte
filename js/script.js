@@ -9,9 +9,13 @@ document.addEventListener("DOMContentLoaded", () => {
   if (burger && panel) {
     burger.addEventListener("click", () => {
       panel.classList.toggle("is-open");
+      document.body.classList.toggle("nav-open", panel.classList.contains("is-open"));
     });
     panel.querySelectorAll("a").forEach((a) =>
-      a.addEventListener("click", () => panel.classList.remove("is-open"))
+      a.addEventListener("click", () => {
+        panel.classList.remove("is-open");
+        document.body.classList.remove("nav-open");
+      })
     );
   }
 
