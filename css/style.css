@@ -51,10 +51,11 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   margin: 0;
+  overflow-x: hidden;
   font-family: var(--font-body);
   color: var(--text);
   background: var(--bg);
@@ -653,6 +654,7 @@ body::before {
 
 @media (max-width: 860px) {
   .nav-links, .nav-tel { display: none; }
+  .nav-actions .btn { display: none; }
   .nav-burger {
     display: flex; align-items: center; justify-content: center;
     width: 42px; height: 42px; border-radius: 10px; border: 1px solid var(--border-strong);
