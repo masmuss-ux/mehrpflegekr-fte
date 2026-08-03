@@ -372,9 +372,9 @@ document.addEventListener("DOMContentLoaded", () => {
     status.style.color = "";
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("https://formular.mehrpflegekraefte.de/kontakt.php", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(Object.fromEntries(new FormData(form))),
       });
       const result = await response.json();
