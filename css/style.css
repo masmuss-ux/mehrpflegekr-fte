@@ -655,7 +655,7 @@ body::before {
 
 /* Navigation bricht früher um als der Rest des Layouts, da sechs Menüpunkte
    plus Telefonnummer und Button auf mittelgroßen Bildschirmen zu eng werden */
-@media (max-width: 1180px) {
+@media (max-width: 1400px) {
   .nav-links, .nav-tel { display: none; }
   .nav-actions .btn { display: none; }
   .nav-burger {
