@@ -655,7 +655,7 @@ body::before {
 
 /* Navigation bricht früher um als der Rest des Layouts, da sechs Menüpunkte
    plus Telefonnummer und Button auf mittelgroßen Bildschirmen zu eng werden */
-@media (max-width: 1400px) {
+@media (max-width: 1020px) {
   .nav-links, .nav-tel { display: none; }
   .nav-actions .btn { display: none; }
   .nav-burger {
@@ -832,3 +832,40 @@ body::before {
 }
 .match-row.is-active .match-status { background: var(--turq); color: #06201c; }
 .match-row.is-active .match-avatar { border-color: var(--turq); box-shadow: 0 0 10px var(--turq-glow); }
+
+/* ============================================================
+   NAV-DROPDOWN — "Mehr"-Klappmenü in der Desktop-Navigation
+   ============================================================ */
+
+.nav-dropdown { position: relative; }
+.nav-dropdown-trigger {
+  background: none; border: none; cursor: pointer;
+  font-family: var(--font-body); font-size: 0.92rem; font-weight: 500;
+  color: var(--text-70);
+  display: flex; align-items: center; gap: 6px;
+  padding: 4px 0;
+}
+.nav-dropdown-trigger:hover { color: var(--text); }
+.nav-dropdown-trigger .caret { font-size: 0.65rem; transition: transform 0.3s var(--ease); color: var(--turq); }
+.nav-dropdown.is-open .nav-dropdown-trigger .caret { transform: rotate(180deg); }
+
+.nav-dropdown-menu {
+  position: absolute; top: calc(100% + 16px); right: 0;
+  background: var(--surface); border: 1px solid var(--border-strong);
+  border-radius: var(--radius-m); padding: 8px;
+  min-width: 200px; box-shadow: var(--shadow-card);
+  opacity: 0; pointer-events: none; transform: translateY(-8px);
+  transition: opacity 0.25s ease, transform 0.25s var(--ease);
+  z-index: 50;
+}
+.nav-dropdown.is-open .nav-dropdown-menu { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.nav-dropdown-menu a {
+  display: block; padding: 11px 14px; border-radius: 8px;
+  font-size: 0.92rem; color: var(--text-70);
+}
+.nav-dropdown-menu a::after { display: none; }
+.nav-dropdown-menu a:hover { background: var(--surface-2); color: var(--turq); }
+
+@media (max-width: 1020px) {
+  .nav-dropdown { display: none; }
+}

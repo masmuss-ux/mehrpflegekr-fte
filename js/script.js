@@ -395,3 +395,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+/* ============================================================
+   NAV-DROPDOWN — "Mehr"-Klappmenü
+   ============================================================ */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const dropdowns = document.querySelectorAll(".nav-dropdown");
+  if (!dropdowns.length) return;
+
+  dropdowns.forEach((dd) => {
+    const trigger = dd.querySelector(".nav-dropdown-trigger");
+    trigger.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const willOpen = !dd.classList.contains("is-open");
+      dropdowns.forEach((other) => {
+        other.classList.remove("is-open");
+        other.querySelector(".nav-dropdown-trigger").setAttribute("aria-expanded", "false");
+      });
+      if (willOpen) {
+        dd.classList.add("is-open");
+        trigger.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+
+  document.addEventListener("click", () => {
+    dropdowns.forEach((dd) => {
+      dd.classList.remove("is-open");
+      dd.querySelector(".nav-dropdown-trigger").setAttribute("aria-expanded", "false");
+    });
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      dropdowns.forEach((dd) => dd.classList.remove("is-open"));
+    }
+  });
+});
