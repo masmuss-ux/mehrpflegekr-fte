@@ -456,7 +456,7 @@ document.addEventListener("DOMContentLoaded", () => {
     status.textContent = "";
 
     try {
-      const response = await fetch("https://formular.mehrpflegekraefte.de/leadmagnet-debug.php", {
+      const response = await fetch("https://formular.mehrpflegekraefte.de/leadmagnet.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(Object.fromEntries(new FormData(form))),
