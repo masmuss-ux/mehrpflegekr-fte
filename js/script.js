@@ -435,3 +435,45 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+/* ============================================================
+   LEAD-MAGNET — Checkliste-Formular
+   ============================================================ */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("leadForm");
+  const status = document.getElementById("leadStatus");
+  const formWrap = document.getElementById("leadFormWrap");
+  const success = document.getElementById("leadSuccess");
+  if (!form) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Wird gesendet …";
+    status.textContent = "";
+
+    try {
+      const response = await fetch("https://formular.mehrpflegekraefte.de/leadmagnet.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+      });
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        formWrap.style.display = "none";
+        success.classList.add("is-visible");
+      } else {
+        throw new Error(result.message || "Unbekannter Fehler");
+      }
+    } catch (err) {
+      status.textContent = "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie an info@maperso.de.";
+      status.style.color = "#e05a4a";
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
+});

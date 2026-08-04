@@ -21,6 +21,7 @@
 - Über das Unternehmen: /ueber-uns.html
 - Häufige Fragen: /faq.html
 - Kontakt und Terminbuchung: /kontakt.html
+- Kostenlose Checkliste "In 5 Schritten zur besetzten Pflegestelle" (PDF, gegen E-Mail-Adresse): /checkliste.html
 - Regionale Vermittlung Berlin/Ostdeutschland: /pflegedienste/berlin.html
 - Regionale Vermittlung Hamburg/Norddeutschland: /pflegedienste/hamburg.html
 - Regionale Vermittlung Köln/Westdeutschland: /pflegedienste/koeln.html
