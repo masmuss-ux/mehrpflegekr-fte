@@ -875,27 +875,38 @@ body::before {
    ============================================================ */
 
 .promo-checklist {
-  background: linear-gradient(135deg, rgba(47,231,214,0.14), rgba(139,124,250,0.08));
-  border: 1px solid rgba(47,231,214,0.4);
-  box-shadow: 0 0 0 1px rgba(47,231,214,0.12), 0 30px 60px -30px rgba(47,231,214,0.35);
+  background: linear-gradient(135deg, #35f0de, #17b6a8);
+  border: 1px solid rgba(6,32,28,0.15);
   position: relative;
   overflow: visible !important;
+  animation: promoGlow 2.6s ease-in-out infinite;
 }
-.promo-checklist::before {
-  background: radial-gradient(circle, rgba(47,231,214,0.28), transparent 70%);
+.promo-checklist::before { display: none; }
+@keyframes promoGlow {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(47,231,214,0.2), 0 30px 70px -25px rgba(47,231,214,0.55); }
+  50% { box-shadow: 0 0 0 1px rgba(47,231,214,0.35), 0 30px 90px -20px rgba(47,231,214,0.85); }
 }
+.promo-eyebrow { color: rgba(6,32,28,0.65) !important; }
+.promo-eyebrow::before { background: rgba(6,32,28,0.4) !important; }
+.promo-heading { color: #06201c !important; }
+.promo-lede { color: rgba(6,32,28,0.78) !important; }
+.promo-btn {
+  background: #06201c; color: #fff; border-color: transparent;
+  box-shadow: 0 14px 30px -12px rgba(6,32,28,0.55);
+}
+.promo-btn:hover { background: #0e2e28; color: #fff; transform: translateY(-3px); }
 
 .limited-badge {
   position: absolute; top: -14px; left: 32px;
   display: inline-flex; align-items: center; gap: 8px;
-  background: var(--turq); color: #06201c;
+  background: #06201c; color: var(--turq);
   font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700;
   letter-spacing: 0.03em; text-transform: uppercase;
   padding: 7px 14px; border-radius: 100px;
-  box-shadow: 0 8px 20px -8px var(--turq-glow);
+  box-shadow: 0 8px 20px -8px rgba(0,0,0,0.4);
 }
 .limited-badge .dot {
-  width: 6px; height: 6px; border-radius: 50%; background: #06201c;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--turq);
   animation: limitedPulse 1.4s ease-in-out infinite;
 }
 @keyframes limitedPulse {
