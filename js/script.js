@@ -171,8 +171,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (isFinePointer) {
     const dot = document.createElement("div");
     dot.className = "cursor-dot";
+    dot.setAttribute("aria-hidden", "true");
     const ring = document.createElement("div");
     ring.className = "cursor-ring";
+    ring.setAttribute("aria-hidden", "true");
     document.body.append(dot, ring);
 
     let mx = 0, my = 0, rx = 0, ry = 0;
