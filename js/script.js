@@ -122,17 +122,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ---------- Calendly Popup ---------- */
+  /* ---------- Kontakt-Popup (ersetzt frühere Calendly-Einbindung) ---------- */
   const openers = document.querySelectorAll("[data-open-calendly]");
   const overlay = document.getElementById("calendlyModal");
   const closeBtn = document.querySelector(".modal-close");
-  const iframe = document.getElementById("calendlyFrame");
-  const CALENDLY_URL = "https://calendly.com/termin-maperso/erstgesprach-klon-1?primary_color=2fe7d6";
+  const modalForm = document.getElementById("modalAnfrageForm");
+  const modalFormStep = document.getElementById("modalFormStep");
+  const modalSuccessStep = document.getElementById("modalSuccessStep");
+  const modalStatus = document.getElementById("modalFormStatus");
 
   const openModal = () => {
-    if (iframe && !iframe.src) iframe.src = CALENDLY_URL;
     overlay.classList.add("is-open");
     document.body.style.overflow = "hidden";
+    if (modalFormStep) modalFormStep.style.display = "";
+    if (modalSuccessStep) modalSuccessStep.classList.remove("is-visible");
   };
   const closeModal = () => {
     overlay.classList.remove("is-open");
@@ -149,6 +152,42 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal();
   });
+
+  if (modalForm) {
+    modalForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const submitBtn = modalForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Wird gesendet …";
+      if (modalStatus) modalStatus.textContent = "";
+
+      try {
+        const response = await fetch("https://formular.mehrpflegekraefte.de/kontakt.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(Object.fromEntries(new FormData(modalForm))),
+        });
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          modalFormStep.style.display = "none";
+          modalSuccessStep.classList.add("is-visible");
+          modalForm.reset();
+        } else {
+          throw new Error(result.message || "Unbekannter Fehler");
+        }
+      } catch (err) {
+        if (modalStatus) {
+          modalStatus.textContent = "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie an info@maperso.de.";
+          modalStatus.style.color = "#e05a4a";
+        }
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    });
+  }
 
   /* ---------- Nav-Schatten beim Scrollen ---------- */
   const nav = document.querySelector(".nav");

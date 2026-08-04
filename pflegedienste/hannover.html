@@ -56,7 +56,7 @@
     </div>
     <div class="nav-actions">
       <span class="nav-tel">+49 30 75 67 46 40</span>
-      <button class="btn btn-primary btn-sm" data-open-calendly>Termin buchen</button>
+      <button class="btn btn-primary btn-sm" data-open-calendly>Kontakt aufnehmen</button>
     </div>
     <button class="nav-burger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
   </div>
@@ -68,7 +68,7 @@
   <a href="../ratgeber/index.html">Ratgeber</a>
   <a href="../faq.html">Fragen &amp; Antworten</a>
   <a href="../kontakt.html">Kontakt</a>
-  <button class="btn btn-primary" data-open-calendly>Termin buchen</button>
+  <button class="btn btn-primary" data-open-calendly>Kontakt aufnehmen</button>
 </div>
 
 <header class="hero" style="padding-bottom:20px;">
@@ -78,7 +78,7 @@
     <h1 style="max-width:20ch;margin-top:16px;">Pflegekräfte vermitteln in Hannover und die Region</h1>
     <p class="lede" style="margin-top:18px;max-width:60ch;">Hannover ist als niedersächsische Landeshauptstadt ein zentraler Standort für Pflegedienste im gesamten norddeutschen Raum, mit einem entsprechend großen, aber auch breit verteilten Kandidatenpool. Wir vermitteln Pflegefachkräfte und Pflegehelfer an Pflegedienste in Niedersachsen, zu einem festen Preis statt einer Provision.</p>
     <div class="hero-cta" style="margin-top:28px;">
-      <button class="btn btn-primary" data-open-calendly>Kostenloses Erstgespräch buchen</button>
+      <button class="btn btn-primary" data-open-calendly>Kostenloses Erstgespräch anfragen</button>
       <a href="../leistungen.html" class="btn btn-ghost">Festpreise ansehen</a>
     </div>
   </div>
@@ -140,7 +140,7 @@
         <h2>Offene Stelle in Hannover?</h2>
         <p class="lede">Wir nennen Ihnen im Erstgespräch den konkreten Festpreis für Ihre Region.</p>
       </div>
-      <button class="btn btn-light" data-open-calendly>Termin auswählen</button>
+      <button class="btn btn-light" data-open-calendly>Jetzt anfragen</button>
     </div>
   </div>
 </section>
@@ -154,14 +154,48 @@
       </div>
       <div><h4>Unternehmen</h4><a href="../ueber-uns.html">Über uns</a><a href="../leistungen.html">Leistungen</a><a href="../faq.html">Fragen &amp; Antworten</a><a href="../kontakt.html">Kontakt</a><a href="../checkliste.html">Checkliste</a></div>
       <div><h4>Regionen</h4><a href="index.html">Alle Regionen</a><a href="berlin.html">Berlin</a><a href="hamburg.html">Hamburg</a><a href="koeln.html">Köln</a><a href="muenchen.html">München</a></div>
-      <div><h4>Kontakt</h4><a href="tel:+493075674640">+49 30 75 67 46 40</a><a href="mailto:info@maperso.de">info@maperso.de</a><a href="#" data-open-calendly>Termin buchen</a></div>
+      <div><h4>Kontakt</h4><a href="tel:+493075674640">+49 30 75 67 46 40</a><a href="mailto:info@maperso.de">info@maperso.de</a><a href="#" data-open-calendly>Kontakt aufnehmen</a></div>
     </div>
     <div class="footer-bottom"><span>© 2026 Mehr Pflegekräfte, Marvin Asmuß</span><div><a href="../impressum.html">Impressum</a> · <a href="../datenschutz.html">Datenschutz</a></div></div>
   </div>
 </footer>
 
-<div class="sticky-cta"><button class="btn btn-primary" data-open-calendly>Kostenloses Erstgespräch buchen</button></div>
-<div class="modal-overlay" id="calendlyModal"><div class="modal-box"><button class="modal-close" aria-label="Schließen">✕</button><iframe id="calendlyFrame" title="Termin bei Mehr Pflegekräfte buchen" loading="lazy"></iframe></div></div>
+<div class="sticky-cta"><button class="btn btn-primary" data-open-calendly>Kostenloses Erstgespräch anfragen</button></div>
+<div class="modal-overlay" id="calendlyModal">
+  <div class="modal-box modal-box-form">
+    <button class="modal-close" aria-label="Schließen">✕</button>
+    <div class="modal-form-inner">
+      <div id="modalFormStep">
+        <h3 style="margin-bottom:8px;">Kontakt aufnehmen</h3>
+        <p class="lede" style="margin-bottom:22px;font-size:0.95rem;max-width:none;">Erzählen Sie uns kurz von Ihrer offenen Stelle, wir melden uns in der Regel innerhalb eines Werktags.</p>
+        <form id="modalAnfrageForm">
+          <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
+          <div class="form-field"><label for="modal-name">Name</label><input type="text" id="modal-name" name="name" required></div>
+          <div class="form-field"><label for="modal-firma">Pflegedienst / Einrichtung</label><input type="text" id="modal-firma" name="firma"></div>
+          <div class="form-field"><label for="modal-email">E-Mail</label><input type="email" id="modal-email" name="email" required></div>
+          <div class="form-field"><label for="modal-telefon">Telefon</label><input type="tel" id="modal-telefon" name="telefon"></div>
+          <div class="form-field">
+            <label for="modal-bedarf">Gesuchte Qualifikation</label>
+            <select id="modal-bedarf" name="bedarf">
+              <option>Examinierte Pflegefachkraft</option>
+              <option>Pflegehelfer / Assistenzkraft</option>
+              <option>Wohnbereichsleitung</option>
+              <option>Sonstige</option>
+            </select>
+          </div>
+          <div class="form-field"><label for="modal-nachricht">Nachricht</label><textarea id="modal-nachricht" name="nachricht" rows="3"></textarea></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Anfrage senden</button>
+          <p id="modalFormStatus" style="margin-top:12px;font-size:0.85rem;"></p>
+        </form>
+      </div>
+      <div id="modalSuccessStep">
+        <div class="modal-success-icon" aria-hidden="true">&#10003;</div>
+        <h3>Danke, angekommen!</h3>
+        <p class="lede" style="max-width:none;">Wir melden uns in der Regel innerhalb eines Werktags.</p>
+      </div>
+    </div>
+  </div>
+</div>
 <script src="../js/script.js"></script>
 </body>
 </html>
