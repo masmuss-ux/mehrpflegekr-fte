@@ -869,3 +869,44 @@ body::before {
 @media (max-width: 1020px) {
   .nav-dropdown { display: none; }
 }
+
+/* ============================================================
+   CHECKLISTE-PROMO — auffällig hervorgehoben mit Zeitlimit-Hinweis
+   ============================================================ */
+
+.promo-checklist {
+  background: linear-gradient(135deg, rgba(47,231,214,0.14), rgba(139,124,250,0.08));
+  border: 1px solid rgba(47,231,214,0.4);
+  box-shadow: 0 0 0 1px rgba(47,231,214,0.12), 0 30px 60px -30px rgba(47,231,214,0.35);
+  position: relative;
+  overflow: visible !important;
+}
+.promo-checklist::before {
+  background: radial-gradient(circle, rgba(47,231,214,0.28), transparent 70%);
+}
+
+.limited-badge {
+  position: absolute; top: -14px; left: 32px;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--turq); color: #06201c;
+  font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.03em; text-transform: uppercase;
+  padding: 7px 14px; border-radius: 100px;
+  box-shadow: 0 8px 20px -8px var(--turq-glow);
+}
+.limited-badge .dot {
+  width: 6px; height: 6px; border-radius: 50%; background: #06201c;
+  animation: limitedPulse 1.4s ease-in-out infinite;
+}
+@keyframes limitedPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.7); }
+}
+
+@media (max-width: 540px) {
+  .limited-badge { left: 50%; transform: translateX(-50%); top: -14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .limited-badge .dot { animation: none !important; }
+}
