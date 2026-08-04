@@ -26,6 +26,8 @@
 - Regionale Vermittlung Köln/Westdeutschland: /pflegedienste/koeln.html
 - Regionale Vermittlung Frankfurt/Mitteldeutschland: /pflegedienste/frankfurt.html
 - Regionale Vermittlung München/Süddeutschland: /pflegedienste/muenchen.html
+- Regionen-Übersicht (20 Städte in ganz Deutschland): /pflegedienste/index.html
+- Weitere Städte: Stuttgart, Karlsruhe, Mannheim, Düsseldorf, Dortmund, Essen, Duisburg, Bochum, Wuppertal, Leipzig, Dresden, Bremen, Hannover, Nürnberg, Wiesbaden (jeweils unter /pflegedienste/[stadt].html)
 - Ratgeber-Übersicht: /ratgeber/index.html
 - Ratgeber: Fachkräftemangel in der Pflege: /ratgeber/fachkraeftemangel-pflege.html
 - Ratgeber: Pflegekräfte finden ohne Zeitarbeit: /ratgeber/pflegekraefte-finden-ohne-zeitarbeit.html
