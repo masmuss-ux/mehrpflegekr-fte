@@ -174,6 +174,9 @@ document.addEventListener("DOMContentLoaded", () => {
           modalFormStep.style.display = "none";
           modalSuccessStep.classList.add("is-visible");
           modalForm.reset();
+          if (typeof gtag === "function") {
+            gtag("event", "kontakt_anfrage_gesendet", { event_category: "Lead", event_label: "Popup-Formular" });
+          }
         } else {
           throw new Error(result.message || "Unbekannter Fehler");
         }
@@ -424,6 +427,9 @@ document.addEventListener("DOMContentLoaded", () => {
         status.textContent = "Danke, Ihre Nachricht ist angekommen. Wir melden uns in der Regel innerhalb eines Werktags.";
         status.style.color = "var(--turq)";
         form.reset();
+        if (typeof gtag === "function") {
+          gtag("event", "kontakt_anfrage_gesendet", { event_category: "Lead", event_label: "Kontaktseite" });
+        }
       } else {
         throw new Error(result.message || "Unbekannter Fehler");
       }
@@ -505,6 +511,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (response.ok && result.success) {
         formWrap.style.display = "none";
         success.classList.add("is-visible");
+        if (typeof gtag === "function") {
+          gtag("event", "checkliste_download", { event_category: "Lead", event_label: "Checkliste" });
+        }
       } else {
         throw new Error(result.message || "Unbekannter Fehler");
       }
